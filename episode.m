@@ -52,8 +52,8 @@ for segment = 1 : segments,
     stats(segment, 1 : 4) = states;
     
     % Q-value update for the offline algorithm
-    if (parallel + benchmark == 0 && (update || segment == segments)),
-        q = update_q(q, segment, last_update, stats(:, 1 : 4), stats(:, 6), stats(:, 8), lambda, alpha);
+    if (parallel + benchmark == 0 && (update || segment == segments) && segment > 1),
+        q = update_q(q, segment - 1, last_update, stats(:, 1 : 4), stats(:, 6), stats(:, 8), lambda, alpha);
         last_update = segment;
     end
     

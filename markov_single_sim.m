@@ -5,9 +5,9 @@ clearvars
 
 % initialization
 training = true;
-runs = 1000;
+runs = 100;
 if (training),
-    runs = 100000;
+    runs = 100;
 end
 segments = 400;
 avg_scene = 5;

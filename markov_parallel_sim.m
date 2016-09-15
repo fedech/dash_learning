@@ -64,7 +64,7 @@ for i = 1 : runs,
     alpha = 0.05;
     tau_t = 0.002;
     tau = max(tau_t, 0.4 / ceil(i / 3));
-    [q, parallel_stats(1 + segments * (i - 1) : segments * i, :)] = faq_episode(q, rates, segments, qualities, complexities, capacities, alpha, lambda, tau, 0, 1, 0);
+    [q, parallel_stats(1 + segments * (i - 1) : segments * i, :)] = faq_episode(q, rates, segments, qualities, complexities, capacities, alpha, lambda, tau, 1);
     [q0, bench_stats(1 + segments * (i - 1) : segments * i, :)] = episode(q, rates, segments, qualities, complexities, capacities, alpha, lambda, tau, 1, 1, 1);
 end
 

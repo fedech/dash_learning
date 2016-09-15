@@ -1,4 +1,4 @@
-function [complexities, qualities] = generate_video(c, rates, avg_scene, segments)
+function [complexities, qualities] = generate_video(coeff, rates, avg_scene, segments)
 % GENERATE_VIDEO generate a scene sequence using an exponentially distributed 
 % scene duration
 %
@@ -20,7 +20,7 @@ scene = 0;
 while (segment <= segments),
     % randomly choose a scene  from the c set (different from the previous one)
     while (scene == old),
-        scene = randi(length(coeff(:, 1));
+        scene = randi(length(coeff(:, 1)));
     end
     old = scene;
     
@@ -29,7 +29,7 @@ while (segment <= segments),
         rho = log10(rates(rate) / rates(1));
         % get the value of the polynomial for the given complexity, i.e., the 
         % quality of the next scene at the j-th bitrate 
-        qual = polyval(coeff(x, :), rho);
+        qual = polyval(coeff(scene, :), rho);
         qualities(segment, rate) = qual;
     end
     

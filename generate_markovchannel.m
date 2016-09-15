@@ -22,9 +22,9 @@ for segment = 2 : segments,
     for future_state = 1 : 10,
         event = event - p_matrix(state, future_state);
         if(event <= 0)
-            state = j;
+            state = future_state;
             % find the capacity corresponding to the state
-            capacities(segment) = (capacity_levels(j) + capacity_levels(j + 1)) / 2;
+            capacities(segment) = (capacity_levels(future_state) + capacity_levels(future_state + 1)) / 2;
             break;
         end
     end
